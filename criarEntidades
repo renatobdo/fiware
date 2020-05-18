@@ -130,4 +130,4 @@ curl -iX POST \
 curl -G -X GET \
   'http://192.168.99.101:1026/v2/entities/urn:ngsi-ld:Shelf:unit001' \
   -d 'type=Shelf' \
-  -d 'options=keyValues'
+  -d 'options=keyValues' | python -mjson.tool
