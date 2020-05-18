@@ -1,0 +1,48 @@
+curl -iX POST \
+  'http://192.168.99.101:1026/v2/op/update' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "actionType":"APPEND",
+  "entities":[
+    {
+      "id":"urn:ngsi-ld:Shelf:unit001", "type":"Shelf",
+      "refStore": {
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:Store:001"
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit002", "type":"Shelf",
+      "refStore": {
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:Store:001"
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit003", "type":"Shelf",
+      "refStore": {
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:Store:001"
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit004", "type":"Shelf",
+      "refStore": {
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:Store:002"
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit005", "type":"Shelf",
+      "refStore": {
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:Store:002"
+      }
+    }
+  ]
+}'
+
+curl -G -X GET \
+  'http://192.168.99.101:1026/v2/entities/urn:ngsi-ld:Shelf:unit001' \
+  -d 'type=Shelf' \
+  -d 'options=keyValues'
