@@ -1,0 +1,133 @@
+//CREATING SEVERAL ENTITIES AT ONCE
+//https://fiware-tutorials.readthedocs.io/en/latest/entity-relationships/index.html
+
+curl -iX POST \
+  'http://192.168.99.101:1026/v2/op/update' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "actionType":"APPEND",
+  "entities":[
+    {
+      "id":"urn:ngsi-ld:Shelf:unit001", "type":"Shelf",
+      "location":{
+        "type":"geo:json", "value":{ "type":"Point","coordinates":[13.3986112, 52.554699]}
+      },
+      "name":{
+        "type":"Text", "value":"Corner Unit"
+      },
+      "maxCapacity":{
+        "type":"Integer", "value":50
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit002", "type":"Shelf",
+      "location":{
+        "type":"geo:json","value":{"type":"Point","coordinates":[13.3987221, 52.5546640]}
+      },
+      "name":{
+        "type":"Text", "value":"Wall Unit 1"
+      },
+      "maxCapacity":{
+        "type":"Integer", "value":100
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit003", "type":"Shelf",
+      "location":{
+        "type":"geo:json", "value":{"type":"Point","coordinates":[13.3987221, 52.5546640]}
+      },
+      "name":{
+        "type":"Text", "value":"Wall Unit 2"
+      },
+      "maxCapacity":{
+        "type":"Integer", "value":100
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit004", "type":"Shelf",
+      "location":{
+        "type":"geo:json", "value":{"type":"Point","coordinates":[13.390311, 52.507522]}
+      },
+      "name":{
+        "type":"Text", "value":"Corner Unit"
+      },
+      "maxCapacity":{
+        "type":"Integer", "value":50
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Shelf:unit005", "type":"Shelf",
+      "location":{
+        "type":"geo:json","value":{"type":"Point","coordinates":[13.390309, 52.50751]}
+      },
+      "name":{
+        "type":"Text", "value":"Long Wall Unit"
+      },
+      "maxCapacity":{
+        "type":"Integer", "value":200
+      }
+    }
+  ]
+}'
+
+curl -iX POST \
+  'http://192.168.99.101:1026/v2/op/update' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "actionType":"APPEND",
+  "entities":[
+    {
+      "id":"urn:ngsi-ld:Product:001", "type":"Product",
+      "name":{
+        "type":"Text", "value":"Beer"
+      },
+      "size":{
+        "type":"Text", "value": "S"
+      },
+      "price":{
+        "type":"Integer", "value": 99
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Product:002", "type":"Product",
+      "name":{
+        "type":"Text", "value":"Red Wine"
+      },
+      "size":{
+        "type":"Text", "value": "M"
+      },
+      "price":{
+        "type":"Integer", "value": 1099
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Product:003", "type":"Product",
+      "name":{
+        "type":"Text", "value":"White Wine"
+      },
+      "size":{
+        "type":"Text", "value": "M"
+      },
+      "price":{
+        "type":"Integer", "value": 1499
+      }
+    },
+    {
+      "id":"urn:ngsi-ld:Product:004", "type":"Product",
+      "name":{
+        "type":"Text", "value":"Vodka"
+      },
+      "size":{
+        "type":"Text", "value": "XL"
+      },
+      "price":{
+        "type":"Integer", "value": 5000
+      }
+    }
+  ]
+}'
+
+curl -G -X GET \
+  'http://192.168.99.101:1026/v2/entities/urn:ngsi-ld:Shelf:unit001' \
+  -d 'type=Shelf' \
+  -d 'options=keyValues'
