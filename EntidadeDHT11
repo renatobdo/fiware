@@ -1,0 +1,15 @@
+{
+    "id": "urn:ngsi-ld:Sensor:003",
+    "type": "Dht11",
+    "temperatura": {
+        "type": "GrausCelsius",
+        "value": ""
+        
+    	
+    },
+    "umidade": {
+        "type": "porcentagem",
+        "value": "" 
+    }
+    
+}
